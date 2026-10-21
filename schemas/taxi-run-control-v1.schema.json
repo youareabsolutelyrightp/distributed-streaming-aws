@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://reconstructed-foil.local/schemas/taxi-run-control-v1.schema.json",
+  "title": "Reconstructed FOIL run control",
+  "oneOf": [
+    {
+      "type": "object",
+      "required": [
+        "record_type", "schema_version", "run_id", "dataset_id",
+        "grading_mode", "input_topic", "expected_partition_count",
+        "expected_source_count", "maximum_event_time",
+        "partitioning_version", "partition_hash_test_vector_version"
+      ],
+      "properties": {
+        "record_type": {"enum": ["run_start", "producer_complete"]},
+        "schema_version": {"const": 1},
+        "expected_partition_count": {"type": "integer", "minimum": 1},
+        "partitioning_version": {"const": "taxi-medallion-partition-v1"},
+        "partition_hash_test_vector_version": {"const": "sha256-prefix64-be-v1"},
+        "expected_source_count": {"type": "integer", "minimum": 1}
+      },
+      "additionalProperties": true
+    },
+    {
+      "type": "object",
+      "required": [
+        "record_type", "schema_version", "control_id", "run_id",
+        "dataset_id", "grading_mode", "query_id",
+        "maximum_event_time_epoch_ms", "completed_at_epoch_us",
+        "terminal_output_id"
+      ],
+      "properties": {
+        "record_type": {"const": "query_complete"},
+        "schema_version": {"const": 1},
+        "control_id": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "query_id": {"enum": ["query1", "query2"]},
+        "grading_mode": {"const": "event-time-state"},
+        "maximum_event_time_epoch_ms": {"type": "integer"},
+        "completed_at_epoch_us": {"type": "integer"},
+        "terminal_output_id": {
+          "type": ["string", "null"],
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "additionalProperties": true
+    }
+  ]
+}

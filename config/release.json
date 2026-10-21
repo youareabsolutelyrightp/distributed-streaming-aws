@@ -1,0 +1,87 @@
+{
+  "version": 2,
+  "name": "reconstructed-foil-compact-coalesced-c9g-50k-5ms-v3",
+  "status": "accepted_full_validation",
+  "region": "us-east-1",
+  "budgets_usd": {
+    "small": 3,
+    "full": 15
+  },
+  "estimated_hourly_usd": 1.316324,
+  "build_identity": {
+    "flink_jar_content_sha256": "7942c0aa8946fec2d29791e49dab67a46a084c2513d26f7ed82f97d8071e67dd"
+  },
+  "stream": {
+    "shared_boundary_mode": "coalesced",
+    "transport_version": 3,
+    "watermark_alignment_max_drift_ms": 3600000,
+    "watermark_alignment_update_ms": 50,
+    "source_idle_timeout_ms": 0,
+    "maximum_out_of_orderness_ms": 0
+  },
+  "flink": {
+    "execution.buffer-timeout.enabled": true,
+    "execution.buffer-timeout.interval": "5 ms"
+  },
+  "recovery": {
+    "candidate": "R15",
+    "checkpoint_interval_ms": 15000,
+    "restart_delay_ms": 3000,
+    "heartbeat_interval_ms": 1000,
+    "heartbeat_timeout_ms": 15000,
+    "rpc_failure_threshold": 3,
+    "restart_attempts": 3
+  },
+  "topology": {
+    "taskmanager_instance_type": "c9g.xlarge",
+    "taskmanagers": 4,
+    "total_vcpus": 28,
+    "input_partitions": 4,
+    "source_parallelism": 4,
+    "processing_parallelism": 8,
+    "ranking_virtual_shards": 24,
+    "ranking_max_parallelism": 128,
+    "task_slots_per_taskmanager": 4,
+    "expected_allocated_slots": 14,
+    "kafka_replication_factor": 3,
+    "kafka_minimum_in_sync_replicas": 2,
+    "nodes": {
+      "control": {"role": "control", "instance_type": "c7g.xlarge", "private_ip": "10.42.10.10", "root_volume_gib": 80, "root_volume_iops": 3000, "root_volume_throughput": 125},
+      "kafka-1": {"role": "kafka", "instance_type": "m7g.large", "private_ip": "10.42.10.21", "root_volume_gib": 120, "root_volume_iops": 3000, "root_volume_throughput": 125, "kafka_node_id": 1},
+      "kafka-2": {"role": "kafka", "instance_type": "m7g.large", "private_ip": "10.42.10.22", "root_volume_gib": 120, "root_volume_iops": 3000, "root_volume_throughput": 125, "kafka_node_id": 2},
+      "kafka-3": {"role": "kafka", "instance_type": "m7g.large", "private_ip": "10.42.10.23", "root_volume_gib": 120, "root_volume_iops": 3000, "root_volume_throughput": 125, "kafka_node_id": 3},
+      "taskmanager-1": {"role": "taskmanager", "instance_type": "c9g.xlarge", "private_ip": "10.42.10.31", "root_volume_gib": 50, "root_volume_iops": 3000, "root_volume_throughput": 125},
+      "taskmanager-2": {"role": "taskmanager", "instance_type": "c9g.xlarge", "private_ip": "10.42.10.32", "root_volume_gib": 50, "root_volume_iops": 3000, "root_volume_throughput": 125},
+      "taskmanager-3": {"role": "taskmanager", "instance_type": "c9g.xlarge", "private_ip": "10.42.10.33", "root_volume_gib": 50, "root_volume_iops": 3000, "root_volume_throughput": 125},
+      "taskmanager-4": {"role": "taskmanager", "instance_type": "c9g.xlarge", "private_ip": "10.42.10.34", "root_volume_gib": 50, "root_volume_iops": 3000, "root_volume_throughput": 125},
+      "database": {"role": "database", "instance_type": "r7g.large", "private_ip": "10.42.10.40", "root_volume_gib": 80, "root_volume_iops": 3000, "root_volume_throughput": 125}
+    }
+  },
+  "runtime": {
+    "state_backend": "hashmap",
+    "taskmanager_process_memory": "6144m",
+    "managed_memory": "0b",
+    "transport_mode": "full",
+    "target_rate_per_second": 50000
+  },
+  "kafka": {
+    "heap": "1g",
+    "topic_retention_ms": 86400000
+  },
+  "materializer": {
+    "batch_size": 1000,
+    "flush_interval": "100ms",
+    "retry_attempts": 3,
+    "retry_backoff": "100ms"
+  },
+  "database": {
+    "shared_buffers": "4GB",
+    "effective_cache_size": "12GB",
+    "work_mem": "16MB",
+    "max_connections": 100
+  },
+  "delivery": {
+    "canonical_results": "at-least-once-kafka",
+    "serving_copy": "timescaledb"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://reconstructed-foil.local/schemas/taxi-dlq-v1.schema.json",
+  "title": "Reconstructed FOIL dead-letter record",
+  "type": "object",
+  "required": [
+    "record_type", "schema_version", "run_id", "dataset_id",
+    "source_line_number", "event_id", "reason", "payload_sha256"
+  ],
+  "properties": {
+    "record_type": {"const": "dead_letter"},
+    "schema_version": {"const": 1},
+    "source_line_number": {"type": "integer", "minimum": 1},
+    "event_id": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "payload_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,15 @@
+{
+  "dataset_id": "reconstructed-foil:2d0445b93d12b96d0625013bf80a8b99ad2d42755a47062f8df3104294a5646d",
+  "input_event_count": 10000000,
+  "maximum_event_time": "2014-01-03T16:31:27Z",
+  "streams": {
+    "query1.event-time-state": {
+      "digest": "59ad70324c1d639ad729886ff71ec35bff470d9f05155f2e8ed758eb092cd565",
+      "records": 172356
+    },
+    "query2.event-time-state": {
+      "digest": "f91c41d390a7d781039f70d4b47c783e57f80ad318939dedadec7949d28e5381",
+      "records": 101548
+    }
+  }
+}

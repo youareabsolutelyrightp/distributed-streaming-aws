@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://reconstructed-foil.local/schemas/taxi-input-v1.schema.json",
+  "title": "Reconstructed FOIL Kafka input record",
+  "oneOf": [
+    {
+      "type": "object",
+      "required": [
+        "record_type", "schema_version", "dataset_id", "joined_record_id", "event_id",
+        "source_line_number", "medallion", "pickup_datetime",
+        "dropoff_datetime", "producer_ingest_epoch_us",
+        "producer_send_epoch_us", "run_id"
+      ],
+      "properties": {
+        "record_type": {"const": "trip"},
+        "schema_version": {"const": 1},
+        "dataset_id": {"type": "string", "minLength": 1},
+        "joined_record_id": {"type": "string", "minLength": 1},
+        "event_id": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "source_line_number": {"type": "integer", "minimum": 1},
+        "medallion": {"type": "string", "minLength": 1},
+        "pickup_datetime": {"type": "string"},
+        "dropoff_datetime": {"type": "string"},
+        "pickup_longitude": {"type": ["number", "null"]},
+        "pickup_latitude": {"type": ["number", "null"]},
+        "dropoff_longitude": {"type": ["number", "null"]},
+        "dropoff_latitude": {"type": ["number", "null"]},
+        "fare_amount": {"type": "string"},
+        "tip_amount": {"type": "string"},
+        "producer_ingest_epoch_us": {"type": "integer"},
+        "producer_send_epoch_us": {"type": "integer"},
+        "run_id": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": true
+    },
+    {
+      "type": "object",
+      "required": [
+        "record_type", "schema_version", "dataset_id", "run_id",
+        "partition", "expected_partition_count", "maximum_event_time"
+      ],
+      "properties": {
+        "record_type": {"const": "eos"},
+        "schema_version": {"const": 1},
+        "partition": {"type": "integer", "minimum": 0},
+        "expected_partition_count": {"type": "integer", "minimum": 1}
+      },
+      "additionalProperties": true
+    }
+  ]
+}

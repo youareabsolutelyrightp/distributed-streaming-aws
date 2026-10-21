@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "run-status-v1",
+  "type": "object",
+  "required": [
+    "version",
+    "run_id",
+    "created_at",
+    "runtime_complete",
+    "evidence_collected",
+    "cleanup_recorded",
+    "cost_recorded",
+    "missing_evidence",
+    "failures"
+  ],
+  "properties": {
+    "version": {"const": 1},
+    "run_id": {"type": "string", "minLength": 1},
+    "created_at": {"type": "string", "minLength": 1},
+    "runtime_complete": {"type": "boolean"},
+    "evidence_collected": {"type": "boolean"},
+    "cleanup_recorded": {"type": "boolean"},
+    "cost_recorded": {"type": "boolean"},
+    "missing_evidence": {"type": "array", "items": {"type": "string"}},
+    "failures": {"type": "array", "items": {"type": "object"}}
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,563 @@
+{
+  "code_commit": "uncommitted",
+  "code_tree_sha256": "183bd5f9b53f6e39ddfb060cb27d61cdfcb523bd6f23091e1b1b5e28c47e19c0",
+  "dataset_id": "reconstructed-foil:2d0445b93d12b96d0625013bf80a8b99ad2d42755a47062f8df3104294a5646d",
+  "dataset_profile": "reconstructed-foil",
+  "event_id_policy": "lowercase SHA-256(dataset_id + joined_record_id)",
+  "event_schema_version": 1,
+  "generated_at": "2026-08-03T04:40:05.720000+00:00",
+  "global_sort_verified": true,
+  "identity_descriptor": {
+    "archives": [
+      {
+        "bytes": 4102781969,
+        "filename": "trip_data.7z",
+        "kind": "trip",
+        "sha256": "846b4f27fd8f02dea45c048ff6255770c3707c6df40b1337a7b948283a96c3c4",
+        "url": "https://archive.org/download/nycTaxiTripData2013/trip_data.7z"
+      },
+      {
+        "bytes": 1718829339,
+        "filename": "trip_fare.7z",
+        "kind": "fare",
+        "sha256": "188dd93ca2a8d55d70b2f87c678b4f3ff32fc4d817d8e205658bf68466a73739",
+        "url": "https://archive.org/download/nycTaxiTripData2013/trip_fare.7z"
+      }
+    ],
+    "dataset_profile": "reconstructed-foil",
+    "event_schema_version": 1,
+    "input_profile": "full",
+    "join_policy": "trimmed medallion,hack_license,vendor_id,pickup_datetime plus independent one-based occurrence order within each repeated key",
+    "joined_record_id_format": "month_id={month:02d}|trip_sha256={trip_sha}|trip_row={trip_row}|fare_sha256={fare_sha}|fare_row={fare_row}",
+    "monthly_sources": [
+      {
+        "fare_source_name": "trip_fare_1.csv",
+        "fare_source_sha256": "186cdfbd3c43876180fcb1c876ea47841ba984f9597f8d2fbd14d89134592ecf",
+        "month_id": 1,
+        "trip_source_name": "trip_data_1.csv",
+        "trip_source_sha256": "8e82a4d9b001f01cee7dbe3cc5032df9b1e59a13cff3667bf19cefdb22c0c8a7"
+      },
+      {
+        "fare_source_name": "trip_fare_2.csv",
+        "fare_source_sha256": "d6fee1f8338af59c3457ee7a0f49b8a1bc1398bcb9170caf0f9be00f4501f679",
+        "month_id": 2,
+        "trip_source_name": "trip_data_2.csv",
+        "trip_source_sha256": "0445ea9b5ce1d9a54d87f8bad92bacf7f8dbd15413b342e718a66418dd27212d"
+      },
+      {
+        "fare_source_name": "trip_fare_3.csv",
+        "fare_source_sha256": "f3f94a24ee491b43f73c58db92c4dfe0a3530ce5d93744b0ce58d0fb30e4f791",
+        "month_id": 3,
+        "trip_source_name": "trip_data_3.csv",
+        "trip_source_sha256": "8d1d12f32224ea0699e30a71bfc30d35ae5fb8bcb171e0b98766a5fd77fde282"
+      },
+      {
+        "fare_source_name": "trip_fare_4.csv",
+        "fare_source_sha256": "7f51daef694e3cd8a96304d24e6d978663fca8cfbf2dc2ef23be05a0c77b5d91",
+        "month_id": 4,
+        "trip_source_name": "trip_data_4.csv",
+        "trip_source_sha256": "ae4b75e041f89ad60b57132da8ce07891a8c87c220eb33c0049907bfcf561038"
+      },
+      {
+        "fare_source_name": "trip_fare_5.csv",
+        "fare_source_sha256": "cfcb5b50e0dbeff57cf1f01bdffb5067cf07b74896e23f070fc153214713ccf3",
+        "month_id": 5,
+        "trip_source_name": "trip_data_5.csv",
+        "trip_source_sha256": "4d7df5bb8096b42eeebe777c7768309824585921da662afd2744b8dac4696fcc"
+      },
+      {
+        "fare_source_name": "trip_fare_6.csv",
+        "fare_source_sha256": "9e685606d36bc77195c3b966fd280516cf89bc2be4e6f53c0c8dca0452176394",
+        "month_id": 6,
+        "trip_source_name": "trip_data_6.csv",
+        "trip_source_sha256": "97f768f664b6c6cfb314235b5420b9481dba894c516cdb665795046e628f84aa"
+      },
+      {
+        "fare_source_name": "trip_fare_7.csv",
+        "fare_source_sha256": "f36dc041f5c40dae0a371bf7b024f6d4b55cb1fc7262d4966cd609dae33c533a",
+        "month_id": 7,
+        "trip_source_name": "trip_data_7.csv",
+        "trip_source_sha256": "6af5da2cd1187e194317b275748d2e5d05391eab4265dc9cc3a6c5c60d5d59ba"
+      },
+      {
+        "fare_source_name": "trip_fare_8.csv",
+        "fare_source_sha256": "50b764eba6f820fb639933cdf0e2021d89df0149415dcd820ed5c81e88f6888e",
+        "month_id": 8,
+        "trip_source_name": "trip_data_8.csv",
+        "trip_source_sha256": "ba71ac172281b2e393c1e935b02ca8a1c85af73a8c6830c05ce82437616176f6"
+      },
+      {
+        "fare_source_name": "trip_fare_9.csv",
+        "fare_source_sha256": "5521d58d6a2fcac1629097a917752811704092383158ebfeda7d9cdf53ee9b91",
+        "month_id": 9,
+        "trip_source_name": "trip_data_9.csv",
+        "trip_source_sha256": "ba8d5047f4008e422233b17ce454840c3e0d2697a24452f01b7cfff5fd3625d8"
+      },
+      {
+        "fare_source_name": "trip_fare_10.csv",
+        "fare_source_sha256": "affc060039a87e8adb37ed3d134a811976feba131e6defa25edcf86bea871318",
+        "month_id": 10,
+        "trip_source_name": "trip_data_10.csv",
+        "trip_source_sha256": "af0e48f06865c83f6cbc3ef77625e632a3a6c144ea12177fe07ea608ed694f93"
+      },
+      {
+        "fare_source_name": "trip_fare_11.csv",
+        "fare_source_sha256": "4d83362708a4ffb5dccf6a72fc7e22c66416f4398648cc21a5052567198283a4",
+        "month_id": 11,
+        "trip_source_name": "trip_data_11.csv",
+        "trip_source_sha256": "6c8048eaff702641374c3f22dddcba21afe8a8d3323736107d6e1d84869ac9f8"
+      },
+      {
+        "fare_source_name": "trip_fare_12.csv",
+        "fare_source_sha256": "8b84e98b035258f22580f5d2388f1341bfa0664b039e7f322b2e870d9a523fc7",
+        "month_id": 12,
+        "trip_source_name": "trip_data_12.csv",
+        "trip_source_sha256": "2f2a734c33c3f99f1b6b2b16ce1be9dfdb64d90ad24bd8c76dbaf87ac4c27f02"
+      }
+    ],
+    "reconstruction_version": "1",
+    "sort_policy": "dropoff_datetime,month_id,trip_original_row_number,fare_original_row_number"
+  },
+  "input_profile": "full",
+  "join_policy": "trimmed medallion,hack_license,vendor_id,pickup_datetime plus independent one-based occurrence order within each repeated key",
+  "joined_record_id_format": "month_id={month:02d}|trip_sha256={trip_sha}|trip_row={trip_row}|fare_sha256={fare_sha}|fare_row={fare_row}",
+  "maximum_event_time": "2014-01-03T16:31:27Z",
+  "minimum_event_time": "2013-01-01T00:00:36Z",
+  "months": [
+    {
+      "fare_accounting": {
+        "joined": 14776529,
+        "malformed": 0,
+        "source_rows": 14776615,
+        "unmatched": 86,
+        "unmatched_duplicate_occurrence": 0
+      },
+      "fare_source_checksum": "186cdfbd3c43876180fcb1c876ea47841ba984f9597f8d2fbd14d89134592ecf",
+      "fare_source_name": "trip_fare_1.csv",
+      "joined_event_count": 14776529,
+      "maximum_event_time": "2013-02-01T10:33:08Z",
+      "minimum_event_time": "2013-01-01T00:00:36Z",
+      "month_id": 1,
+      "monthly_checksum": "0e8c793fe2966289bfd8c4cec5f1860a1364d4aadb093ca92cca16c97e5ac696",
+      "monthly_export_threads": 1,
+      "monthly_filename": "month-01.sorted.csv.zst",
+      "monthly_output_version": 3,
+      "sort_key": "dropoff_datetime,month_id,trip_original_row_number,fare_original_row_number",
+      "sort_verified": true,
+      "trip_accounting": {
+        "joined": 14776529,
+        "malformed": 86,
+        "source_rows": 14776615,
+        "unmatched": 0,
+        "unmatched_duplicate_occurrence": 0
+      },
+      "trip_source_checksum": "8e82a4d9b001f01cee7dbe3cc5032df9b1e59a13cff3667bf19cefdb22c0c8a7",
+      "trip_source_name": "trip_data_1.csv",
+      "unmatched_report": "data/quarantine/full/month-01.unmatched.csv.zst",
+      "unmatched_report_checksum": "16b13a9375f853cdc9c4c9dddc7991adbfcc2bd6dc9809355e0a46121f09b7f6"
+    },
+    {
+      "fare_accounting": {
+        "joined": 13990063,
+        "malformed": 0,
+        "source_rows": 13990176,
+        "unmatched": 113,
+        "unmatched_duplicate_occurrence": 0
+      },
+      "fare_source_checksum": "d6fee1f8338af59c3457ee7a0f49b8a1bc1398bcb9170caf0f9be00f4501f679",
+      "fare_source_name": "trip_fare_2.csv",
+      "joined_event_count": 13990063,
+      "maximum_event_time": "2013-03-01T01:15:48Z",
+      "minimum_event_time": "2013-02-01T00:00:55Z",
+      "month_id": 2,
+      "monthly_checksum": "cdac67540c417617e0ba52bd5c57bdc6bd7a7284b8afd1ea73b1271a74ec9a7b",
+      "monthly_export_threads": 1,
+      "monthly_filename": "month-02.sorted.csv.zst",
+      "monthly_output_version": 3,
+      "sort_key": "dropoff_datetime,month_id,trip_original_row_number,fare_original_row_number",
+      "sort_verified": true,
+      "trip_accounting": {
+        "joined": 13990063,
+        "malformed": 113,
+        "source_rows": 13990176,
+        "unmatched": 0,
+        "unmatched_duplicate_occurrence": 0
+      },
+      "trip_source_checksum": "0445ea9b5ce1d9a54d87f8bad92bacf7f8dbd15413b342e718a66418dd27212d",
+      "trip_source_name": "trip_data_2.csv",
+      "unmatched_report": "data/quarantine/full/month-02.unmatched.csv.zst",
+      "unmatched_report_checksum": "b94ac85875eefb746fcb26d474321641fe6e62b73f2bbf28f015f1fdbbf84a43"
+    },
+    {
+      "fare_accounting": {
+        "joined": 15748935,
+        "malformed": 0,
+        "source_rows": 15749228,
+        "unmatched": 293,
+        "unmatched_duplicate_occurrence": 0
+      },
+      "fare_source_checksum": "f3f94a24ee491b43f73c58db92c4dfe0a3530ce5d93744b0ce58d0fb30e4f791",
+      "fare_source_name": "trip_fare_3.csv",
+      "joined_event_count": 15748935,
+      "maximum_event_time": "2013-04-01T01:16:32Z",
+      "minimum_event_time": "2013-03-01T00:00:39Z",
+      "month_id": 3,
+      "monthly_checksum": "a343e2d7171df10eae2ebac7983d041fd408ac70d53dac7d40fe33be3f0c6ce4",
+      "monthly_export_threads": 1,
+      "monthly_filename": "month-03.sorted.csv.zst",
+      "monthly_output_version": 3,
+      "sort_key": "dropoff_datetime,month_id,trip_original_row_number,fare_original_row_number",
+      "sort_verified": true,
+      "trip_accounting": {
+        "joined": 15748935,
+        "malformed": 293,
+        "source_rows": 15749228,
+        "unmatched": 0,
+        "unmatched_duplicate_occurrence": 0
+      },
+      "trip_source_checksum": "8d1d12f32224ea0699e30a71bfc30d35ae5fb8bcb171e0b98766a5fd77fde282",
+      "trip_source_name": "trip_data_3.csv",
+      "unmatched_report": "data/quarantine/full/month-03.unmatched.csv.zst",
+      "unmatched_report_checksum": "d4a798b762f1fbd673e96ea2cd5e50964de271ee909ff1f1d86fbeae8abb66dd"
+    },
+    {
+      "fare_accounting": {
+        "joined": 15100322,
+        "malformed": 0,
+        "source_rows": 15100468,
+        "unmatched": 146,
+        "unmatched_duplicate_occurrence": 0
+      },
+      "fare_source_checksum": "7f51daef694e3cd8a96304d24e6d978663fca8cfbf2dc2ef23be05a0c77b5d91",
+      "fare_source_name": "trip_fare_4.csv",
+      "joined_event_count": 15100322,
+      "maximum_event_time": "2013-05-01T02:19:25Z",
+      "minimum_event_time": "2013-04-01T00:00:00Z",
+      "month_id": 4,
+      "monthly_checksum": "5d6a6df388b66f5b4bcb199f426679d6b8264fcea69ce946d1397877c71a8b64",
+      "monthly_export_threads": 1,
+      "monthly_filename": "month-04.sorted.csv.zst",
+      "monthly_output_version": 3,
+      "sort_key": "dropoff_datetime,month_id,trip_original_row_number,fare_original_row_number",
+      "sort_verified": true,
+      "trip_accounting": {
+        "joined": 15100322,
+        "malformed": 146,
+        "source_rows": 15100468,
+        "unmatched": 0,
+        "unmatched_duplicate_occurrence": 0
+      },
+      "trip_source_checksum": "ae4b75e041f89ad60b57132da8ce07891a8c87c220eb33c0049907bfcf561038",
+      "trip_source_name": "trip_data_4.csv",
+      "unmatched_report": "data/quarantine/full/month-04.unmatched.csv.zst",
+      "unmatched_report_checksum": "a194309329da85b941c26c43759b6823d84add70b301e2b47f9ce7afd467f159"
+    },
+    {
+      "fare_accounting": {
+        "joined": 15285010,
+        "malformed": 0,
+        "source_rows": 15285049,
+        "unmatched": 39,
+        "unmatched_duplicate_occurrence": 0
+      },
+      "fare_source_checksum": "cfcb5b50e0dbeff57cf1f01bdffb5067cf07b74896e23f070fc153214713ccf3",
+      "fare_source_name": "trip_fare_5.csv",
+      "joined_event_count": 15285010,
+      "maximum_event_time": "2013-06-06T03:14:55Z",
+      "minimum_event_time": "2013-03-22T07:14:14Z",
+      "month_id": 5,
+      "monthly_checksum": "2df6d06b2aa3cc77b3d073bf8039aeb12033b463a87781de4c3c58a5408386e2",
+      "monthly_export_threads": 1,
+      "monthly_filename": "month-05.sorted.csv.zst",
+      "monthly_output_version": 3,
+      "sort_key": "dropoff_datetime,month_id,trip_original_row_number,fare_original_row_number",
+      "sort_verified": true,
+      "trip_accounting": {
+        "joined": 15285010,
+        "malformed": 39,
+        "source_rows": 15285049,
+        "unmatched": 0,
+        "unmatched_duplicate_occurrence": 0
+      },
+      "trip_source_checksum": "4d7df5bb8096b42eeebe777c7768309824585921da662afd2744b8dac4696fcc",
+      "trip_source_name": "trip_data_5.csv",
+      "unmatched_report": "data/quarantine/full/month-05.unmatched.csv.zst",
+      "unmatched_report_checksum": "d2289a188cb472ac81ab62212a493a76bb2454dc594b412e583cba7b2e63f409"
+    },
+    {
+      "fare_accounting": {
+        "joined": 14385118,
+        "malformed": 0,
+        "source_rows": 14385456,
+        "unmatched": 338,
+        "unmatched_duplicate_occurrence": 0
+      },
+      "fare_source_checksum": "9e685606d36bc77195c3b966fd280516cf89bc2be4e6f53c0c8dca0452176394",
+      "fare_source_name": "trip_fare_6.csv",
+      "joined_event_count": 14385118,
+      "maximum_event_time": "2013-07-01T01:14:24Z",
+      "minimum_event_time": "2013-03-22T08:04:00Z",
+      "month_id": 6,
+      "monthly_checksum": "1e4159663b948c892170d58ebd3cc4390e8e9794013eea7b1b34a9fa778e7a08",
+      "monthly_export_threads": 1,
+      "monthly_filename": "month-06.sorted.csv.zst",
+      "monthly_output_version": 3,
+      "sort_key": "dropoff_datetime,month_id,trip_original_row_number,fare_original_row_number",
+      "sort_verified": true,
+      "trip_accounting": {
+        "joined": 14385118,
+        "malformed": 338,
+        "source_rows": 14385456,
+        "unmatched": 0,
+        "unmatched_duplicate_occurrence": 0
+      },
+      "trip_source_checksum": "97f768f664b6c6cfb314235b5420b9481dba894c516cdb665795046e628f84aa",
+      "trip_source_name": "trip_data_6.csv",
+      "unmatched_report": "data/quarantine/full/month-06.unmatched.csv.zst",
+      "unmatched_report_checksum": "0c9545557f8822e6b31c8e35cdea2cb31d0adfdd2b88977d06c2ed2edfb48085"
+    },
+    {
+      "fare_accounting": {
+        "joined": 13823142,
+        "malformed": 0,
+        "source_rows": 13823840,
+        "unmatched": 698,
+        "unmatched_duplicate_occurrence": 0
+      },
+      "fare_source_checksum": "f36dc041f5c40dae0a371bf7b024f6d4b55cb1fc7262d4966cd609dae33c533a",
+      "fare_source_name": "trip_fare_7.csv",
+      "joined_event_count": 13823142,
+      "maximum_event_time": "2013-08-03T13:14:30Z",
+      "minimum_event_time": "2013-06-21T14:31:09Z",
+      "month_id": 7,
+      "monthly_checksum": "d232ec5fcec0eee1b0eb3d354cd55c7397dfcdf6cde771cece0965b9d2cefc7f",
+      "monthly_export_threads": 1,
+      "monthly_filename": "month-07.sorted.csv.zst",
+      "monthly_output_version": 3,
+      "sort_key": "dropoff_datetime,month_id,trip_original_row_number,fare_original_row_number",
+      "sort_verified": true,
+      "trip_accounting": {
+        "joined": 13823142,
+        "malformed": 698,
+        "source_rows": 13823840,
+        "unmatched": 0,
+        "unmatched_duplicate_occurrence": 0
+      },
+      "trip_source_checksum": "6af5da2cd1187e194317b275748d2e5d05391eab4265dc9cc3a6c5c60d5d59ba",
+      "trip_source_name": "trip_data_7.csv",
+      "unmatched_report": "data/quarantine/full/month-07.unmatched.csv.zst",
+      "unmatched_report_checksum": "988e42aa5dea76333efd79179839fe09e4a529efcea0be9d970dc08a9c04da99"
+    },
+    {
+      "fare_accounting": {
+        "joined": 12597064,
+        "malformed": 0,
+        "source_rows": 12597109,
+        "unmatched": 45,
+        "unmatched_duplicate_occurrence": 0
+      },
+      "fare_source_checksum": "50b764eba6f820fb639933cdf0e2021d89df0149415dcd820ed5c81e88f6888e",
+      "fare_source_name": "trip_fare_8.csv",
+      "joined_event_count": 12597064,
+      "maximum_event_time": "2013-09-04T14:34:04Z",
+      "minimum_event_time": "2013-08-01T00:00:00Z",
+      "month_id": 8,
+      "monthly_checksum": "6bd04a80ac4835757d6aff97a5f15fb125e3634a0f09c3f34b8a9fe7e95c799a",
+      "monthly_export_threads": 1,
+      "monthly_filename": "month-08.sorted.csv.zst",
+      "monthly_output_version": 3,
+      "sort_key": "dropoff_datetime,month_id,trip_original_row_number,fare_original_row_number",
+      "sort_verified": true,
+      "trip_accounting": {
+        "joined": 12597064,
+        "malformed": 45,
+        "source_rows": 12597109,
+        "unmatched": 0,
+        "unmatched_duplicate_occurrence": 0
+      },
+      "trip_source_checksum": "ba71ac172281b2e393c1e935b02ca8a1c85af73a8c6830c05ce82437616176f6",
+      "trip_source_name": "trip_data_8.csv",
+      "unmatched_report": "data/quarantine/full/month-08.unmatched.csv.zst",
+      "unmatched_report_checksum": "ff4e71d27b430546ea36289201cb4be47399e79b835ddd7ca54ddc12010227c5"
+    },
+    {
+      "fare_accounting": {
+        "joined": 14107615,
+        "malformed": 0,
+        "source_rows": 14107693,
+        "unmatched": 78,
+        "unmatched_duplicate_occurrence": 0
+      },
+      "fare_source_checksum": "5521d58d6a2fcac1629097a917752811704092383158ebfeda7d9cdf53ee9b91",
+      "fare_source_name": "trip_fare_9.csv",
+      "joined_event_count": 14107615,
+      "maximum_event_time": "2013-10-04T02:58:42Z",
+      "minimum_event_time": "2013-09-01T00:01:27Z",
+      "month_id": 9,
+      "monthly_checksum": "80665c70f0fd3858a2b3c91365ef0e87b0bdb946c3cd2fcca8605db5b7fc7652",
+      "monthly_export_threads": 1,
+      "monthly_filename": "month-09.sorted.csv.zst",
+      "monthly_output_version": 3,
+      "sort_key": "dropoff_datetime,month_id,trip_original_row_number,fare_original_row_number",
+      "sort_verified": true,
+      "trip_accounting": {
+        "joined": 14107615,
+        "malformed": 78,
+        "source_rows": 14107693,
+        "unmatched": 0,
+        "unmatched_duplicate_occurrence": 0
+      },
+      "trip_source_checksum": "ba8d5047f4008e422233b17ce454840c3e0d2697a24452f01b7cfff5fd3625d8",
+      "trip_source_name": "trip_data_9.csv",
+      "unmatched_report": "data/quarantine/full/month-09.unmatched.csv.zst",
+      "unmatched_report_checksum": "7585cc7a1432c3bdeaa59cc5f4473776cf193fb9e46727ed2207a1a976d9dd8b"
+    },
+    {
+      "fare_accounting": {
+        "joined": 15003820,
+        "malformed": 0,
+        "source_rows": 15004556,
+        "unmatched": 736,
+        "unmatched_duplicate_occurrence": 0
+      },
+      "fare_source_checksum": "affc060039a87e8adb37ed3d134a811976feba131e6defa25edcf86bea871318",
+      "fare_source_name": "trip_fare_10.csv",
+      "joined_event_count": 15003820,
+      "maximum_event_time": "2013-11-01T03:17:34Z",
+      "minimum_event_time": "2013-10-01T00:00:00Z",
+      "month_id": 10,
+      "monthly_checksum": "7855bb58d8810797e211f30c7f76e98f2125de872b3f06eec9433c9b8691b426",
+      "monthly_export_threads": 1,
+      "monthly_filename": "month-10.sorted.csv.zst",
+      "monthly_output_version": 3,
+      "sort_key": "dropoff_datetime,month_id,trip_original_row_number,fare_original_row_number",
+      "sort_verified": true,
+      "trip_accounting": {
+        "joined": 15003820,
+        "malformed": 736,
+        "source_rows": 15004556,
+        "unmatched": 0,
+        "unmatched_duplicate_occurrence": 0
+      },
+      "trip_source_checksum": "af0e48f06865c83f6cbc3ef77625e632a3a6c144ea12177fe07ea608ed694f93",
+      "trip_source_name": "trip_data_10.csv",
+      "unmatched_report": "data/quarantine/full/month-10.unmatched.csv.zst",
+      "unmatched_report_checksum": "5a69cec5bee2c0ca46c08b659909f32416143e5c239b18dcad9f1570c143127b"
+    },
+    {
+      "fare_accounting": {
+        "joined": 14387697,
+        "malformed": 0,
+        "source_rows": 14388451,
+        "unmatched": 754,
+        "unmatched_duplicate_occurrence": 0
+      },
+      "fare_source_checksum": "4d83362708a4ffb5dccf6a72fc7e22c66416f4398648cc21a5052567198283a4",
+      "fare_source_name": "trip_fare_11.csv",
+      "joined_event_count": 14387697,
+      "maximum_event_time": "2013-12-01T01:47:54Z",
+      "minimum_event_time": "2013-11-01T00:00:07Z",
+      "month_id": 11,
+      "monthly_checksum": "9342d2db44f4c9d55fe49bd6d219a4a4fdab5c25e2db767ebcf1c3d7ff38bc06",
+      "monthly_export_threads": 1,
+      "monthly_filename": "month-11.sorted.csv.zst",
+      "monthly_output_version": 3,
+      "sort_key": "dropoff_datetime,month_id,trip_original_row_number,fare_original_row_number",
+      "sort_verified": true,
+      "trip_accounting": {
+        "joined": 14387697,
+        "malformed": 754,
+        "source_rows": 14388451,
+        "unmatched": 0,
+        "unmatched_duplicate_occurrence": 0
+      },
+      "trip_source_checksum": "6c8048eaff702641374c3f22dddcba21afe8a8d3323736107d6e1d84869ac9f8",
+      "trip_source_name": "trip_data_11.csv",
+      "unmatched_report": "data/quarantine/full/month-11.unmatched.csv.zst",
+      "unmatched_report_checksum": "8636a96ea6d6a6194d3d61e29bc83d65058c593d9598c29c36cbf1b1cf561262"
+    },
+    {
+      "fare_accounting": {
+        "joined": 13971006,
+        "malformed": 0,
+        "source_rows": 13971118,
+        "unmatched": 112,
+        "unmatched_duplicate_occurrence": 0
+      },
+      "fare_source_checksum": "8b84e98b035258f22580f5d2388f1341bfa0664b039e7f322b2e870d9a523fc7",
+      "fare_source_name": "trip_fare_12.csv",
+      "joined_event_count": 13971006,
+      "maximum_event_time": "2014-01-03T16:31:27Z",
+      "minimum_event_time": "2013-12-01T00:00:00Z",
+      "month_id": 12,
+      "monthly_checksum": "7eade2deb6ca0cbfa228b85cbf4cd0d1fff558102f0bdb7d8fa3942bea0ce741",
+      "monthly_export_threads": 1,
+      "monthly_filename": "month-12.sorted.csv.zst",
+      "monthly_output_version": 3,
+      "sort_key": "dropoff_datetime,month_id,trip_original_row_number,fare_original_row_number",
+      "sort_verified": true,
+      "trip_accounting": {
+        "joined": 13971006,
+        "malformed": 112,
+        "source_rows": 13971118,
+        "unmatched": 0,
+        "unmatched_duplicate_occurrence": 0
+      },
+      "trip_source_checksum": "2f2a734c33c3f99f1b6b2b16ce1be9dfdb64d90ad24bd8c76dbaf87ac4c27f02",
+      "trip_source_name": "trip_data_12.csv",
+      "unmatched_report": "data/quarantine/full/month-12.unmatched.csv.zst",
+      "unmatched_report_checksum": "c3d9780b1a6a4d46cd9786e3be3c4fe517eb68087cb4a82c9a331e31aee0f276"
+    }
+  ],
+  "preparation_command": "python3 -m reconstruction.cli prepare",
+  "preparation_duration_seconds": 1445.505,
+  "prepared_checksum": "8dfd45d7d73501d1bea414ffa1dd0e300fc4110597db55025971991022d65ea8",
+  "prepared_compressed_bytes": 21505760988,
+  "prepared_compression": "zstd",
+  "prepared_event_count": 173176321,
+  "prepared_filename": "reconstructed-foil.csv.zst",
+  "prepared_uncompressed_bytes": 123254648928,
+  "reconstruction_version": "1",
+  "sort_key": "dropoff_datetime,month_id,trip_original_row_number,fare_original_row_number",
+  "source_accounting": {
+    "fare": {
+      "joined": 173176321,
+      "malformed": 0,
+      "source_rows": 173179759,
+      "unmatched": 3438,
+      "unmatched_duplicate_occurrence": 0
+    },
+    "trip": {
+      "joined": 173176321,
+      "malformed": 3438,
+      "source_rows": 173179759,
+      "unmatched": 0,
+      "unmatched_duplicate_occurrence": 0
+    }
+  },
+  "sources": [
+    {
+      "bytes": 4102781969,
+      "filename": "trip_data.7z",
+      "kind": "trip",
+      "sha256": "846b4f27fd8f02dea45c048ff6255770c3707c6df40b1337a7b948283a96c3c4",
+      "url": "https://archive.org/download/nycTaxiTripData2013/trip_data.7z"
+    },
+    {
+      "bytes": 1718829339,
+      "filename": "trip_fare.7z",
+      "kind": "fare",
+      "sha256": "188dd93ca2a8d55d70b2f87c678b4f3ff32fc4d817d8e205658bf68466a73739",
+      "url": "https://archive.org/download/nycTaxiTripData2013/trip_fare.7z"
+    }
+  ],
+  "tool_configuration": {
+    "duckdb": "1.4.3",
+    "go": "1.25.6",
+    "machine": "aarch64",
+    "memory_limit": "20GB",
+    "python": "3.12.12",
+    "threads": 12,
+    "zstandard": "0.25.0"
+  }
+}

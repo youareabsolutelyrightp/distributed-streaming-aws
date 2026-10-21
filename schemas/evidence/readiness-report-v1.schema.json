@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "readiness-report-v1",
+  "type": "object",
+  "required": ["version", "operational_complete", "correctness_scope", "checks", "failures", "measurements"],
+  "properties": {
+    "version": {"type": "integer", "const": 1},
+    "operational_complete": {"type": "boolean"},
+    "checks": {"type": "object"},
+    "failures": {"type": "array"},
+    "measurements": {"type": "object"}
+  }
+}

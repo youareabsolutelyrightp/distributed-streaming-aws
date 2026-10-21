@@ -1,0 +1,98 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+dnf install -y docker jq tar gzip zstd
+systemctl enable --now docker
+systemctl enable --now amazon-ssm-agent
+
+install -d -m 0750 /etc/taxi
+install -d -m 0755 /opt/taxi/release /opt/taxi/evidence /opt/taxi/results
+
+cat >/etc/taxi/node.env <<'EOF'
+AWS_REGION=${aws_region}
+ARTIFACT_BUCKET=${artifact_bucket}
+RELEASE_OBJECT_KEY=${release_object_key}
+RELEASE_SHA256=${release_sha256}
+DEPLOYMENT_ID=${deployment_id}
+DEPLOYMENT_PROFILE=${profile}
+NODE_NAME=${node_name}
+NODE_ROLE=${node_role}
+PRIVATE_IP=${private_ip}
+CONTROL_ADDRESS=${control_address}
+DATABASE_ADDRESS=${database_address}
+DATABASE_PASSWORD=${database_password}
+KAFKA_BROKERS=${kafka_brokers}
+KAFKA_CONTROLLER_VOTERS=${kafka_controller_voters}
+KAFKA_NODE_ID=${kafka_node_id}
+KAFKA_REPLICATION_FACTOR=${kafka_replication}
+KAFKA_MINIMUM_ISR=${kafka_minimum_isr}
+INPUT_PARTITIONS=${input_partitions}
+EXPECTED_TASKMANAGERS=${expected_taskmanagers}
+EOF
+chmod 0600 /etc/taxi/node.env
+
+aws s3 cp "s3://${artifact_bucket}/${release_object_key}" /opt/taxi/release.tar.gz
+echo "${release_sha256}  /opt/taxi/release.tar.gz" | sha256sum -c -
+tar -xzf /opt/taxi/release.tar.gz -C /opt/taxi/release
+chmod +x /opt/taxi/release/infra/runtime/*.sh
+
+cat >/etc/systemd/system/taxi-node.service <<'EOF'
+[Unit]
+Description=Taxi streaming AWS node
+After=docker.service network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+EnvironmentFile=/etc/taxi/node.env
+ExecStart=/opt/taxi/release/infra/runtime/node-service.sh start
+ExecStop=/opt/taxi/release/infra/runtime/node-service.sh stop
+TimeoutStartSec=1800
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+cat >/etc/systemd/system/taxi-node-metrics.service <<'EOF'
+[Unit]
+Description=Taxi benchmark host metrics
+After=network-online.target
+
+[Service]
+Type=simple
+EnvironmentFile=/etc/taxi/node.env
+ExecStart=/opt/taxi/release/infra/runtime/node-metrics.sh
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+cat >/etc/systemd/system/taxi-local-ttl.service <<'EOF'
+[Unit]
+Description=Stop the instance after its local TTL
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/systemctl poweroff
+EOF
+
+cat >/etc/systemd/system/taxi-local-ttl.timer <<'EOF'
+[Unit]
+Description=Independent local compute stop timer
+
+[Timer]
+OnBootSec=${ttl_hours}h
+AccuracySec=1min
+Unit=taxi-local-ttl.service
+
+[Install]
+WantedBy=timers.target
+EOF
+
+systemctl daemon-reload
+systemctl enable --now taxi-node-metrics.service
+systemctl enable --now taxi-local-ttl.timer
+systemctl enable --now taxi-node.service

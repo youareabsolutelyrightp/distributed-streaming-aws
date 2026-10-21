@@ -1,0 +1,24 @@
+#!/usr/bin/env python3
+import sys
+import traceback
+from pathlib import Path
+
+from aws_benchmark.cli import main
+
+
+if __name__ == "__main__":
+    try:
+        raise SystemExit(main())
+    except KeyboardInterrupt:
+        print("benchmark: interrupted; run cleanup or resume the saved orchestration state", file=sys.stderr)
+        raise SystemExit(130)
+    except Exception as error:
+        diagnostic = Path(".runs") / "launcher-error.log"
+        diagnostic.parent.mkdir(parents=True, exist_ok=True)
+        diagnostic.write_text(traceback.format_exc(), encoding="utf-8")
+        print(
+            f"ERROR run=unavailable phase=launcher: {error}\n"
+            f"Evidence: {diagnostic}\nCleanup: unavailable\nAccount audit: unavailable",
+            file=sys.stderr,
+        )
+        raise SystemExit(1)

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "warmup-report-v1",
+  "type": "object",
+  "required": ["version", "operational_complete", "checks", "measurements"],
+  "properties": {
+    "version": {"type": "integer", "const": 1},
+    "operational_complete": {"type": "boolean"},
+    "checks": {"type": "object"},
+    "measurements": {"type": "object"}
+  }
+}

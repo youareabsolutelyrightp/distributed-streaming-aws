@@ -1,0 +1,14 @@
+{
+  "partitioning_version": "taxi-medallion-partition-v1",
+  "hash_test_vector_version": "sha256-prefix64-be-v1",
+  "vectors": [
+    {"medallion": "taxi-a", "partition_count": 4, "expected_partition": 3},
+    {"medallion": "taxi-a", "partition_count": 12, "expected_partition": 7},
+    {"medallion": "medallion-0001", "partition_count": 4, "expected_partition": 0},
+    {"medallion": "NYC", "partition_count": 4, "expected_partition": 2},
+    {"medallion": "", "partition_count": 4, "expected_partition": 0},
+    {"medallion": "é-taxi", "partition_count": 4, "expected_partition": 0},
+    {"medallion": "🚕", "partition_count": 4, "expected_partition": 0},
+    {"medallion": "taxi-a", "partition_count": 1, "expected_partition": 0}
+  ]
+}
